@@ -14,7 +14,10 @@ Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 78
   local last = line_diags[#line_diags]
 
   -- ADDED FROM HERE
-  if string.find(last.message, "unbound") or string.find(last.message, "is not accessed") then
+  if last.message:find("unbound") or 
+     last.message:find("is not accessed") or
+     last.message:find("Cannot access member") or
+     last.message:find("Argument of type") then
     return nil
   end
   -- UNTIL HERE
@@ -27,7 +30,7 @@ Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 78
       virtual_text_highlight_map[last.severity],
     })
 ```
-- If you add `string.find(last.message, "xxx")` with `or` in above code, you can filter `"xxx"` also.
+- If you add `last.message:find("xxx")` with `or` in above code, you can filter `"xxx"` also.
 - If you're Mac user, find a location you installed Neovim. And modify `Neovim/share/nvim/runtime/lua/vim/diagnostic.lua`.
 - Be careful not to confuse with `neovim/runtime/lua/vim/lsp/diagnostic.lua`. You don't need to put `/lsp/` before `diagnostic.lua`
 
