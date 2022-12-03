@@ -31,7 +31,7 @@ Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 78
 - If you're Mac user, find a location you installed Neovim. And modify `Neovim/share/nvim/runtime/lua/vim/diagnostic.lua`.
 - Be careful not to confuse with `neovim/runtime/lua/vim/lsp/diagnostic.lua`. You don't need to put `/lsp/` before `diagnostic.lua`
 
-# Additional
+# Option
 If you modify `local prefix = opts.prefix or '■'` located at the above of previous code, you can change prefix of diagnostic also.
 ```
 local prefix = opts.prefix or '👀'
