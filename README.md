@@ -1,3 +1,14 @@
+# TL;DR
+Add below strings in `diagnostic.lua`.
+```lua
+  if last.message:find("unbound") or 
+     last.message:find("is not accessed") or
+     last.message:find("Cannot access member") or
+     last.message:find("Argument of type") then
+    return nil
+  end
+```
+
 # What is Mentioned Here
 How to filter Neovim diagnostic (like below `"randint" is ...`) **with some specific strings**.
 - Not kill all diagnostic function.
