@@ -6,7 +6,7 @@ How to filter Neovim diagnostic (like below `"randint" is ...`) **with some spec
 ![image](https://user-images.githubusercontent.com/114144822/205418496-51481b74-eacf-40e9-ae93-a51ee390411b.png)
 
 # How to Achieve It
-Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 785. Then, restart Neovim.
+Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 1065. Then, restart Neovim.
 ```lua
   for i = 1, #line_diags - 1 do
     table.insert(virt_texts, { prefix, virtual_text_highlight_map[line_diags[i].severity] })
@@ -32,6 +32,8 @@ Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 78
 ```
 - If you add `last.message:find("xxx")` with `or` in above code, you can filter `"xxx"` also.
 - If you're Mac user, find a location you installed Neovim. And modify `Neovim/share/nvim/runtime/lua/vim/diagnostic.lua`.
+- If you're Linux user and installed with [AppImage](https://github.com/neovim/neovim/wiki/Installing-Neovim#appimage-universal-linux-package), modify `/squashfs-root/usr/share/nvim/runtime/lua/vim/diagnostic.lua`.
+  - Then, type `ln -sf /squashfs-root/usr/bin/nvim /usr/bin/nvim` in bash/zsh.
 - Be careful not to confuse with `neovim/runtime/lua/vim/lsp/diagnostic.lua`. You don't need to put `/lsp/` before `diagnostic.lua`
 
 # Option
