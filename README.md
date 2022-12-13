@@ -28,7 +28,10 @@ Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 10
   if last.message:find("unbound") or 
      last.message:find("is not accessed") or
      last.message:find("Cannot access member") or
-     last.message:find("Argument of type") then
+     last.message:find("Argument of type") or
+     last.message:find("Import ") or
+     last.message:find('Object type "None" is not subscriptable') or
+     last.message:find('is not a known member of "None"') then
     return nil
   end
   -- UNTIL HERE
