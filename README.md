@@ -9,14 +9,14 @@ Add below strings in `diagnostic.lua`.
   end
 ```
 
-# What is Mentioned Here
+# About
 How to filter Neovim diagnostic (like below `"randint" is ...`) **with some specific strings**.
 - Not kill all diagnostic function.
 - Not suppress specific diagnostic level (like hiding less than warning level).
 
 ![image](https://user-images.githubusercontent.com/114144822/205418496-51481b74-eacf-40e9-ae93-a51ee390411b.png)
 
-# How to Achieve It
+# How to
 Add below text in `neovim/runtime/lua/vim/diagnostic.lua`, around line number 1065. Then, restart Neovim.
 ```lua
   for i = 1, #line_diags - 1 do
